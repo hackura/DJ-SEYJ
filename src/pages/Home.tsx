@@ -7,8 +7,8 @@ const Home = () => {
     return (
         <MainLayout>
             <Helmet>
-                <title>DJ SeyJ Mandem | Professional DJ & Web Developer</title>
-                <meta name="description" content="Official website of DJ SeyJ Mandem. Experience the best mixes and check out my web development portfolio." />
+                <title>DJ Sey J (Valency) | Professional DJ & Web Developer</title>
+                <meta name="description" content="Official website of DJ Sey J (Valency). Experience the best mixes and check out my web development portfolio." />
                 <link rel="canonical" href="https://djseyj.vercel.app/" />
 
                 <meta name="keywords" content="DJ SeyJ, SeyJ Mandem, DJ Sey J, Dorpe Karl Seyram, DJ Valency, Ghana DJ, Afrobeat, Amapiano, Vulnerability Assessment, Cyber Security, Web Developer, React Developer" />
@@ -45,15 +45,15 @@ const Home = () => {
                 {/* Open Graph / Facebook */}
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://djseyj.vercel.app/" />
-                <meta property="og:title" content="DJ SeyJ Mandem | Professional DJ & Web Developer" />
-                <meta property="og:description" content="Official website of DJ SeyJ Mandem (Dorpe Karl Seyram). Experience the best mixes from the former DJ Valency and check out my web development portfolio." />
+                <meta property="og:title" content="DJ Sey J (Valency) | Professional DJ & Web Developer" />
+                <meta property="og:description" content="Official website of DJ Sey J (Valency) (Dorpe Karl Seyram). Experience the best mixes from the former DJ Valency and check out my web development portfolio." />
                 <meta property="og:image" content="https://djseyj.vercel.app/images/og-image.jpg" />
 
                 {/* Twitter */}
                 <meta property="twitter:card" content="summary_large_image" />
                 <meta property="twitter:url" content="https://djseyj.vercel.app/" />
-                <meta property="twitter:title" content="DJ SeyJ Mandem | Professional DJ & Web Developer" />
-                <meta property="twitter:description" content="Official website of DJ SeyJ Mandem (Dorpe Karl Seyram). Experience the best mixes from the former DJ Valency and check out my web development portfolio." />
+                <meta property="twitter:title" content="DJ Sey J (Valency) | Professional DJ & Web Developer" />
+                <meta property="twitter:description" content="Official website of DJ Sey J (Valency) (Dorpe Karl Seyram). Experience the best mixes from the former DJ Valency and check out my web development portfolio." />
                 <meta property="twitter:image" content="https://djseyj.vercel.app/images/og-image.jpg" />
             </Helmet>
 
@@ -76,7 +76,7 @@ const Home = () => {
                         <div className="w-full md:w-1/2 relative group">
                             <div className="absolute inset-0 bg-gold-500/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
                             <img
-                                src="https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?q=80&w=1000&auto=format&fit=crop"
+                                src="https://images.unsplash.com/photo-1594623930572-300a3011d9ae?q=80&w=1000&auto=format&fit=crop"
                                 alt="DJ Turntables"
                                 className="rounded-2xl shadow-2xl relative z-10 border border-white/10 grayscale group-hover:grayscale-0 transition-all duration-700"
                                 loading="lazy"

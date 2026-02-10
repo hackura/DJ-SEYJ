@@ -23,8 +23,8 @@ const Hero = () => {
                     <h2 className="text-gold-500 tracking-[0.3em] font-medium mb-4 text-sm md:text-base">STUDENT DJ & WEB DEV</h2>
                     <h1 className="text-6xl md:text-8xl font-black text-white leading-tight mb-6">
                         DJ <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-gold-600">SEYJ</span>
-                        <span className="block text-4xl md:text-5xl text-gray-500 font-light tracking-widest mt-2">MANDEM</span>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-gold-600">SEY J</span>
+                        <span className="block text-4xl md:text-5xl text-gray-500 font-light tracking-widest mt-2">(VALENCY)</span>
                     </h1>
                     <p className="text-gray-400 text-lg md:text-xl max-w-lg mb-8 mx-auto md:mx-0">
                         DJing and web development. The intersection of rhythm and code.
