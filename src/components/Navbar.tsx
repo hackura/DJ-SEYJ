@@ -32,7 +32,7 @@ const Navbar = () => {
         <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-dark-900/95 backdrop-blur-md py-4 shadow-lg' : 'bg-transparent py-6'}`}>
             <div className="container mx-auto px-6 flex justify-between items-center">
                 <Link to="/" className="text-2xl font-black tracking-tighter hover:text-gold-500 transition-colors">
-                    DJ<span className="text-gold-500">SEYJ</span>
+                    DJ<span className="text-gold-500"> SEY J</span>
                 </Link>
 
                 {/* Desktop Nav */}
