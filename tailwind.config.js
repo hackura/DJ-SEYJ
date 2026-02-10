@@ -12,6 +12,7 @@ export default {
                     800: '#1a1a1a',
                 },
                 gold: {
+                    400: '#e6c35c',
                     500: '#d4af37',
                     600: '#aa8c2c',
                 }
