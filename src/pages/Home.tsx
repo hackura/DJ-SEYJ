@@ -8,7 +8,7 @@ const Home = () => {
         <MainLayout>
             <Helmet>
                 <title>DJ Sey J (Valency) | Professional DJ & Web Developer</title>
-                <meta name="description" content="Official website of DJ Sey J (Valency). Experience the best mixes and check out my web development portfolio." />
+                <meta name="description" content="Official website of DJ Sey J (Valency). Experience the best mixes and check out my web development portfolio. Specializing in Afrobeat, Amapiano, and secure web solutions." />
                 <link rel="canonical" href="https://djseyj.vercel.app/" />
 
                 <meta name="keywords" content="DJ SeyJ, SeyJ Mandem, DJ Sey J, Dorpe Karl Seyram, DJ Valency, Ghana DJ, Afrobeat, Amapiano, Vulnerability Assessment, Cyber Security, Web Developer, React Developer" />
