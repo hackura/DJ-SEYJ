@@ -122,7 +122,6 @@ const Mixes = () => {
                 onClose={() => setIsShareModalOpen(false)}
                 title={featuredMix?.title || 'Check out this mix by DJ SeyJ'}
                 url={featuredMix ? `${window.location.origin}/music?mixId=${featuredMix.id}` : window.location.href}
-                description={featuredMix?.description}
             />
 
             {/* Decorative Elements */}
