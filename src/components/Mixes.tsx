@@ -1,7 +1,7 @@
 
 import { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Play, ExternalLink, Download, Pause, Share2 } from 'lucide-react';
+import { Play, ExternalLink, Download, Pause, Share2, Loader2 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import ShareModal from './ShareModal';
 
@@ -18,6 +18,7 @@ const Mixes = () => {
     const [mixes, setMixes] = useState<Mix[]>([]);
     const [currentMix, setCurrentMix] = useState<Mix | null>(null);
     const [isPlaying, setIsPlaying] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const [isShareModalOpen, setIsShareModalOpen] = useState(false);
     const audioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -30,17 +31,21 @@ const Mixes = () => {
             // Only update src if it's different to prevent reloading on every render
             if (audioRef.current.src !== currentMix.audio_url) {
                 audioRef.current.src = currentMix.audio_url;
-                // Attempt to play, handling potential autoplay policy errors
+                // Attempt to play, safely handling interruptions
                 const playPromise = audioRef.current.play();
-
                 if (playPromise !== undefined) {
                     playPromise
                         .then(() => {
                             setIsPlaying(true);
                         })
                         .catch(error => {
-                            console.error("Playback failed:", error);
+                            // Ignore AbortError which happens when pausing/changing quickly
+                            if (error.name !== 'AbortError') {
+                                console.error("Playback failed:", error);
+                            }
                             setIsPlaying(false);
+                            // Ensure loading state is reset on error
+                            setIsLoading(false);
                         });
                 }
             } else {
@@ -50,7 +55,12 @@ const Mixes = () => {
                     if (playPromise !== undefined) {
                         playPromise
                             .then(() => setIsPlaying(true))
-                            .catch(console.error);
+                            .catch(error => {
+                                if (error.name !== 'AbortError') {
+                                    console.error("Resume failed:", error);
+                                }
+                                setIsPlaying(false);
+                            });
                     }
                 }
             }
@@ -98,7 +108,12 @@ const Mixes = () => {
             if (playPromise !== undefined) {
                 playPromise
                     .then(() => setIsPlaying(true))
-                    .catch(error => console.error("Play failed:", error));
+                    .catch(error => {
+                        if (error.name !== 'AbortError') {
+                            console.error("Play failed:", error);
+                        }
+                        setIsPlaying(false);
+                    });
             }
         }
     };
@@ -115,7 +130,19 @@ const Mixes = () => {
 
     return (
         <section className="py-24 bg-dark-900 relative" id="music">
-            <audio ref={audioRef} onEnded={() => setIsPlaying(false)} crossOrigin="anonymous" />
+            <audio
+                ref={audioRef}
+                onEnded={() => setIsPlaying(false)}
+                onWaiting={() => setIsLoading(true)}
+                onCanPlay={() => setIsLoading(false)}
+                onLoadStart={() => setIsLoading(true)}
+                onPlaying={() => {
+                    setIsPlaying(true);
+                    setIsLoading(false);
+                }}
+                onPause={() => setIsPlaying(false)}
+                crossOrigin="anonymous"
+            />
 
             <ShareModal
                 isOpen={isShareModalOpen}
@@ -167,7 +194,13 @@ const Mixes = () => {
                                             onClick={togglePlay}
                                             className="w-16 h-16 bg-gold-500 rounded-full flex items-center justify-center text-black hover:scale-105 transition-transform"
                                         >
-                                            {isPlaying && currentMix?.id === featuredMix.id ? <Pause size={32} fill="currentColor" /> : <Play size={32} fill="currentColor" className="ml-1" />}
+                                            {isLoading && currentMix?.id === featuredMix.id ? (
+                                                <Loader2 size={32} className="animate-spin text-black" />
+                                            ) : isPlaying && currentMix?.id === featuredMix.id ? (
+                                                <Pause size={32} fill="currentColor" />
+                                            ) : (
+                                                <Play size={32} fill="currentColor" className="ml-1" />
+                                            )}
                                         </button>
                                     </div>
                                 </div>
@@ -182,7 +215,13 @@ const Mixes = () => {
                                             onClick={togglePlay}
                                             className="px-6 py-3 bg-gold-500 text-black font-bold rounded-lg hover:bg-gold-400 transition-colors flex items-center gap-2"
                                         >
-                                            {isPlaying && currentMix?.id === featuredMix.id ? <><Pause size={20} /> Pause</> : <><Play size={20} /> Play Now</>}
+                                            {isLoading && currentMix?.id === featuredMix.id ? (
+                                                <><Loader2 size={20} className="animate-spin" /> Loading...</>
+                                            ) : isPlaying && currentMix?.id === featuredMix.id ? (
+                                                <><Pause size={20} /> Pause</>
+                                            ) : (
+                                                <><Play size={20} /> Play Now</>
+                                            )}
                                         </button>
 
                                         <a
@@ -243,7 +282,9 @@ const Mixes = () => {
                                             className="w-full h-full object-cover"
                                         />
                                         <div className={`absolute inset-0 bg-black/50 flex items-center justify-center transition-opacity ${currentMix?.id === mix.id ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
-                                            {currentMix?.id === mix.id && isPlaying ? (
+                                            {currentMix?.id === mix.id && isLoading ? (
+                                                <Loader2 size={20} className="text-gold-500 animate-spin" />
+                                            ) : currentMix?.id === mix.id && isPlaying ? (
                                                 <Pause size={20} className="text-gold-500" fill="currentColor" />
                                             ) : (
                                                 <Play size={20} className="text-white" fill="white" />

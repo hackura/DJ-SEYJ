@@ -11,7 +11,12 @@ const Home = () => {
                 <meta name="description" content="Official website of DJ Sey J (Valency). Experience the best mixes and check out my web development portfolio. Specializing in Afrobeat, Amapiano, and secure web solutions." />
                 <link rel="canonical" href="https://djseyj.vercel.app/" />
 
-                <meta name="keywords" content="DJ SeyJ, SeyJ Mandem, DJ Sey J, Dorpe Karl Seyram, DJ Valency, Ghana DJ, Afrobeat, Amapiano, Vulnerability Assessment, Cyber Security, Web Developer, React Developer" />
+                {/* Search Engine Optimization */}
+                <meta name="robots" content="index, follow" />
+                <meta name="author" content="Dorpe Karl Seyram (DJ Sey J)" />
+                <meta name="publisher" content="SeyJ Mandem Brand" />
+                <meta name="theme-color" content="#d4af37" />
+                <meta name="keywords" content="DJ Sey J, DJ Valency, SeyJ Mandem, Dorpe Karl Seyram, Ghana DJ, Afrobeat DJ, Amapiano DJ, Professional DJ, Web Developer, React Developer, Cyber Security Analyst, Vulnerability Assessment, Frontend Developer" />
 
                 {/* JSON-LD Structured Data */}
                 <script type="application/ld+json">
@@ -20,7 +25,7 @@ const Home = () => {
                             "@context": "https://schema.org",
                             "@type": "Person",
                             "name": "SeyJ Mandem",
-                            "alternateName": ["DJ SeyJ", "DJ Valency", "Dorpe Karl Seyram"],
+                            "alternateName": ["DJ Sey J", "DJ Valency", "Dorpe Karl Seyram"],
                             "url": "https://djseyj.vercel.app",
                             "image": "https://djseyj.vercel.app/images/about.png",
                             "sameAs": [
@@ -32,7 +37,7 @@ const Home = () => {
                                 "https://audiomack.com/djseyj",
                                 "https://linktr.ee/djseyj"
                             ],
-                            "jobTitle": ["DJ", "Web Developer", "Cyber Analyst"],
+                            "jobTitle": ["DJ", "Web Developer", "Cyber Security Analyst"],
                             "worksFor": {
                                 "@type": "Organization",
                                 "name": "SeyJ Mandem Brand"
@@ -42,19 +47,26 @@ const Home = () => {
                     `}
                 </script>
 
-                {/* Open Graph / Facebook */}
+                {/* Open Graph / Facebook / LinkedIn */}
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://djseyj.vercel.app/" />
                 <meta property="og:title" content="DJ Sey J (Valency) | Professional DJ & Web Developer" />
-                <meta property="og:description" content="Official website of DJ Sey J (Valency) (Dorpe Karl Seyram). Experience the best mixes from the former DJ Valency and check out my web development portfolio." />
+                <meta property="og:description" content="Official website of DJ Sey J (Valency). Discover high-energy Afrobeat & Amapiano mixes and explore top-tier web development services." />
                 <meta property="og:image" content="https://djseyj.vercel.app/images/og-image.jpg" />
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
+                <meta property="og:locale" content="en_US" />
+                <meta property="og:site_name" content="DJ Sey J (Valency)" />
 
                 {/* Twitter */}
-                <meta property="twitter:card" content="summary_large_image" />
-                <meta property="twitter:url" content="https://djseyj.vercel.app/" />
-                <meta property="twitter:title" content="DJ Sey J (Valency) | Professional DJ & Web Developer" />
-                <meta property="twitter:description" content="Official website of DJ Sey J (Valency) (Dorpe Karl Seyram). Experience the best mixes from the former DJ Valency and check out my web development portfolio." />
-                <meta property="twitter:image" content="https://djseyj.vercel.app/images/og-image.jpg" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:site" content="@djseyj" />
+                <meta name="twitter:creator" content="@djseyj" />
+                <meta name="twitter:url" content="https://djseyj.vercel.app/" />
+                <meta name="twitter:title" content="DJ Sey J (Valency) | Professional DJ & Web Developer" />
+                <meta name="twitter:description" content="Official website of DJ Sey J (Valency). Discover high-energy Afrobeat & Amapiano mixes and explore top-tier web development services." />
+                <meta name="twitter:image" content="https://djseyj.vercel.app/images/og-image.jpg" />
+                <meta name="twitter:image:alt" content="DJ Sey J (Valency) Branding" />
             </Helmet>
 
             <Hero />
